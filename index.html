@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+    const productList  = [
+        {title: 'Телефон1',subText: 'Описание телефона1',price: 123,isSale: true},
+        {title: 'Телефон2',subText: 'Описание телефона2',price: 1000,},
+        {title: 'Телефон3',subText: 'Описание телефона3',price: 1232,},
+        {title: 'Телефон4',subText: 'Описание телефона4',price: 1233,},
+        {title: 'Телефон5',subText: 'Описание телефона5',price: 123,isSale: true},
+    ]
+    const userList  = [
+        {name: 'Максим',number: '375252323443',age: 13},
+        {name: 'Леша',number: '375292323449',age: 17},
+        {name: 'Дмитрий',number: '375442323043',age: 43},
+        {name: 'Сергей',number: '375296533443',age: 10},
+    ]
+
+
+    const newProductList = productList.map(function(item){
+        return{...item,price: 200}
+    })
+    const newProductList1 = productList.filter(item=>item.isSale)
+    console.log(productList)
+    console.log(newProductList)
+    console.log(newProductList1)
+    console.log(productList.reverse())
+
+    const string = 'шалаш'
+    // function polindome(string) {
+    //     const aStr = string.split('');
+    //     const revStr = aStr.reverse().join('')
+    //     return string == revStr;
+    // }
+    // console.log(polindrome(string.toLowerCase().trim()))
+    const palindrome = string =>  string.split('').reverse().join('')===string;
+    console.log(palindrome(string))
+
+
+
+    const compact = array => array.filter(item => item )
+    const data =[0,1,false,2,undefined,'',3,null]
+    console.log(compact(data))
+
+</script>
+</body>
+</html>
