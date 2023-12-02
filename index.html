@@ -3,50 +3,294 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+
 </head>
 <body>
+<!--<div id="div"></div>-->
+<!--<input type="password" id="pswrd">-->
+<!--<button id="btn">отправить</button>-->
 
 <script>
-    const productList  = [
-        {title: 'Телефон1',subText: 'Описание телефона1',price: 123,isSale: true},
-        {title: 'Телефон2',subText: 'Описание телефона2',price: 1000,},
-        {title: 'Телефон3',subText: 'Описание телефона3',price: 1232,},
-        {title: 'Телефон4',subText: 'Описание телефона4',price: 1233,},
-        {title: 'Телефон5',subText: 'Описание телефона5',price: 123,isSale: true},
-    ]
-    const userList  = [
-        {name: 'Максим',number: '375252323443',age: 13},
-        {name: 'Леша',number: '375292323449',age: 17},
-        {name: 'Дмитрий',number: '375442323043',age: 43},
-        {name: 'Сергей',number: '375296533443',age: 10},
-    ]
+    // //primitive
+    // '' - string
+    // 1 - number
+    // null - null
+    // undefined - undefined
+    // true/false - boolean
+    // symbol
+    // bigInt
+    // //object
+    // {} - object
+    // const  name = 'Петя'
+    // const  number = 1
+    // const bool = true
+    // let user = null
+    // const userName = undefined
+    // console.log(number)
+    // console.log(bool)
+    // console.log(user)
+    // console.log(userName)
+    // console.log(null==undefined)
+    // const obj = {
+    //     name: 'Петя',
+    //     age: 21
+    // };
+    // console.log(obj.name)
+    // const string = 'string'
+    // const number = 1;
+    // const bool = true;
+    // const nul = null//баг object
+    // const obj = {}
+    // const arr = [
+    //
+    // ]
+    // function foo(){
+    //
+    // }
+    // console.log(typeof foo);
+    // console.log(b)
+    // var a = 1
+    // const b =1
+    // for (let i = 0; i <9; i++){
+    //     setTimeout(() => console.log(i),0)
+    // }
+    // function foo() {
+    //     console.log('myFunction')
+    //
+    // }
+    // foo()
+    // function foo() {
+    //     console.log('myFunction')
+    //     return 2
+    // }
+    // console.log(foo())
+    // function foo(age) {
+    //     if(age >18){
+    //         return 'Вы взрослый'
+    //     }
+    //     else{
+    //         return 'Не продам'
+    //     }
+    //
+    // }
+    //
+    // console.log(foo(20))
+    // const password = document.getElementById('pswrd').va
+    // const div = document.getElementById('div')
+    // const correctPassword = '100000'
+    // function foo(password) {
+    //     if(password === correctPassword){
+    //         return 'Welcome'
+    //     }
+    //     else{
+    //         return 'Wrong password'
+    //     }
+    //
+    // }
+    // div.innerText = foo('12456')
+    // console.log(Math.max(2,1,3,4,5,6))
+    // console.log(Math.random()*10)
+    // console.log(Math.round(Math.random()*10))//округление к ближ целому
+    // console.log(Math.ceil(Math.random()*10))//округление к меньшему
+    // console.log(Math.floor(Math.random()*10))//округление к большему
+    // console.log('4.9 round',Math.round(4.9))//оркугление к ближ целому
+    // console.log('4.9 ceil',Math.ceil(4.9))//округление к меньшему
+    // console.log('4.9 floor',Math.floor(4.9))//округление в большую сторону
+    // const sym2 = Symbol('foo')
+    // const sym3 = Symbol('foo')
+    // console.log(sym2===sym3)
+    // const name = 'Dima'
+    // console.log(name.length)
+    // console.log(name[2])
+    // console.log(name.toUpperCase())//это уже другая строка, не name(неявно созданная)
+    // const text = 'maks@gmail.com'
+    // console.log(text.includes('@gmail'))
+    // console.log(text.indexOf('m'))
+    // console.log(text.substr(0,4))//4 символа с 0 индекса
+    //const word = 'width height '
+    // const word2 = '     width   '
+    // console.log(word2.trim().toLowerCase() === word.trim().toLowerCase())//.trim убирает пробелы в начале и в конце
+    // console.log(word.split(''))
+    // console.log(word.split(' '))
+    // function getSum(a,b) {
+    //     return a+b;
+    // }
+    // console.log(getSum(5,4))
 
+    // const world = 'world'
+    // const name = 'Dima'
+    // const text = `${world} ${name}`
+    // const word = 'World'
+    // //console.log(`${hello} ${world}`)
+    // console.log(name[name.length-1])
+    // console.log(name.at(-1))
+    // console.log(name)
+    //
+    // const updateText = text.toUpperCase().trim();
+    // const updateWord = word.toUpperCase().trim();
+    // console.log(updateText.includes(updateWord))
+    //
+    // function foo() {
+    //     const updateText = text.toUpperCase().trim();
+    //     const updateWord = word.toUpperCase().trim();
+    //     return updateText.includes(updateWord)
+    // }
+    // console.log(foo())
+    // console.log(word.repeat(5))
+    // console.log(word.replace('o','D'))
+    // const data = '01.10.2032'
+    // console.log(data.replaceAll('.','/'))
+    // console.log(data.split('.').reverse().join('/'))
+    // for (let char of 'Hello'){
+    //     console.log(char)
+    // }
+    // console.log(word.slice(0,4))
+    //1
+    // function ucFirst(str) {
+    //     if (!str) return str;
+    //     const capitalStr = str[0].toUpperCase()+ str.slice(1,str.length)
+    //     return capitalStr
+    // }
+    // console.log(ucFirst('вася'))
+    // //2
+    // function checkSpam(str) {
+    //     const updateStr = str.toLowerCase().trim();
+    //     if (updateStr.includes('viagra') || updateStr.includes('xxx')) return true
+    //     return false
+    // }
+    // console.log(checkSpam('buy ViAgRA now'))
+    // console.log(checkSpam('free xxxxxx'))
+    // console.log(checkSpam('innocent rabbit'))
+    // //3
+    // function truncate(str,maxlength) {
+    //     if(str.length > maxlength) return str.slice(0,maxlength-1)+'...'
+    // }
+    // console.log(truncate("Вот, что мне хотелось бы сказать на эту тему:", 20))
+    // //4
+    // const value = '$120'
+    // function extractCurrencyValue(value) {
+    //     return value.slice(1)
+    // }
+    // console.log(extractCurrencyValue(value))
+    // const obj = {
+    //     name: 'Dima',
+    //     address:{
+    //         street: 'Vaneeva'
+    //     },
+    // }
+    // const obj2 = {...obj,address: {...obj.address}}
+    // const obj3 = Object.assign({},obj);
+    // obj3.address.street = 'Prushinskih'
+    // console.log(JSON.stringify(obj)===JSON.stringify(obj3))
+    //
+    //
+    // function isPlainObject(data) {
+    //     return typeof data === 'object'  && !Array.isArray(data)
+    // }
+    // const data = {
+    //     a: 1,
+    //     b: 2,
+    //     c: 3
+    // }
+    // console.log(isPlainObject(data))
+    // function makePairs(data){
+    //     return Object.entries(data)
+    // }
+    // console.log(makePairs(data))
+    // function without(data,b,c) {
+    //     const newData = Object.assign({},data);
+    //     delete newData.b;
+    //     delete newData.c;
+    //     return newData
+    // }
+    // console.log(without(data,'b','c'))
 
-    const newProductList = productList.map(function(item){
-        return{...item,price: 200}
-    })
-    const newProductList1 = productList.filter(item=>item.isSale)
-    console.log(productList)
-    console.log(newProductList)
-    console.log(newProductList1)
-    console.log(productList.reverse())
-
-    const string = 'шалаш'
+    // const productList  = [
+    //     {title: 'Телефон1',subText: 'Описание телефона1',price: 123,isSale: true},
+    //     {title: 'Телефон2',subText: 'Описание телефона2',price: 1000,},
+    //     {title: 'Телефон3',subText: 'Описание телефона3',price: 1232,},
+    //     {title: 'Телефон4',subText: 'Описание телефона4',price: 1233,},
+    //     {title: 'Телефон5',subText: 'Описание телефона5',price: 123,isSale: true},
+    // ]
+    // const userList  = [
+    //     {name: 'Максим',number: '375252323443',age: 13},
+    //     {name: 'Леша',number: '375292323449',age: 17},
+    //     {name: 'Дмитрий',number: '375442323043',age: 43},
+    //     {name: 'Сергей',number: '375296533443',age: 10},
+    // ]
+    //
+    //
+    // const newProductList = productList.map(function(item){
+    //     return{...item,price: 200}
+    // })
+    // const newProductList1 = productList.filter(item=>item.isSale)
+    // console.log(productList)
+    // console.log(newProductList)
+    // console.log(newProductList1)
+    // // console.log(productList.reverse())
+    //
+    // const string = 'шалаш'
     // function polindome(string) {
     //     const aStr = string.split('');
     //     const revStr = aStr.reverse().join('')
     //     return string == revStr;
     // }
     // console.log(polindrome(string.toLowerCase().trim()))
-    const palindrome = string =>  string.split('').reverse().join('')===string;
-    console.log(palindrome(string))
+    // const palindrome = string =>  string.split('').reverse().join('')===string;
+    // console.log(palindrome(string))
+    //
+    //
+    //
+    // const compact = array => array.filter(item => item )
+    // const data =[0,1,false,2,undefined,'',3,null]
+    // console.log(compact(data))
+    //
+    //
+    // const arr =[11,1,2,22,3,5]
+    // let sum = 0
+    // const arrSum = arr.reduce((accumulator,currentValue)=>
+    //     accumulator+=currentValue,0
+    // )
+    // console.log(arrSum)
+    //1 declaration
+    function foo(a,b,c) {
+        console.log(arguments)//псевдомассив
+    }
+    foo(1,2,3);
+    //2 expression(стрелочная)
+    const foo1 = (a,b,c) => console.log(a,b,c)//нет псевомассива aruments, this
+    foo1(1,2,3);
+    //3 IIFE
+    (function () {//пользоваться не желательно
+        console.log('function IIFE')
+    })()
+    //4 function constructor
+    function Bar() {//с большой буквы
 
-
-
-    const compact = array => array.filter(item => item )
-    const data =[0,1,false,2,undefined,'',3,null]
-    console.log(compact(data))
-
+    }
+    //5 function generator
+    function* generator(i) {
+        yield i;
+        yield i+10;
+        yield i+20;
+    }
+    const gen = generator(10);
+    console.log(gen.next().value);
+    console.log(gen.next().value);
+    console.log(gen.next().value);
+    //6 Method
+    const obj = {
+         name: 'Dima',
+        getName: function () {
+            console.log(this.name)//this==obj
+        },
+        setName(newName){
+             this.name = newName
+        }
+    }
+    obj.getName()
 </script>
 </body>
 </html>
