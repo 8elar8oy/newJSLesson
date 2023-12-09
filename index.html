@@ -4,15 +4,150 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-
+    <style>
+        .item {
+            margin-top:10px ;
+            padding: 0 50px 0 50px;
+            display: flex;
+            width: fit-content;
+            height: fit-content;
+            border: 1px solid black;
+            border-radius: 10px;
+            background-color: lightgray;
+        }
+        .input{
+            width: 250px;
+            height: 20px;
+            border: 1px solid black;
+            border-radius: 10px;
+            background-color: white;
+        }
+    </style>
 
 </head>
 <body>
-<!--<div id="div"></div>-->
-<!--<input type="password" id="pswrd">-->
-<!--<button id="btn">отправить</button>-->
+<div id="root" >
+<!--    <div data-color ='red' class="item">RED</div>-->
+
+<!--    <div data-color="yellow"  class="item">-->
+<!--        YELLOW-->
+<!--    </div>-->
+<!--    <div data-color=" blue" class="item">-->
+<!--        BLUE-->
+<!--    </div>-->
+    <div>
+        <input class="input" id="input" type="text">
+        <button id="button">ДОБАВИТЬ</button>
+    </div>
+</div>
+<!--<button id= "btn1">CREATE</button>-->
 
 <script>
+
+    const root = document.getElementById('root')
+    const input = document.getElementById('input')
+    const button = document.getElementById('button')
+    const todoList = [
+        {text: 'Проснуться',complete: false},
+        {text: 'Собраться в школу',complete: false},
+        {text: 'Вернуться домой',complete: false},
+        {text: 'Сделать уроки',complete: false}
+        ]
+    root.addEventListener('click',(event) => {
+            const elem = event.target;
+            const color= elem.dataset.color
+
+            if (elem.style.cssText){
+                elem.style.backgroundColor = null
+            }
+            else{
+                elem.style.backgroundColor = color
+            }
+    }
+        )
+    input.addEventListener('change',() => {
+           console.log(input.value)
+        }
+    )
+
+    const createElement = (text,complete) =>{
+        const div = document.createElement('div')
+        const p = document.createElement('p')
+        const input = document.createElement('input')
+        p.innerText=text
+        div.classList.add('item')
+        input.setAttribute('type','checkbox')
+        input.checked = complete
+
+        div.append(p)
+        div.append(input)
+        root.append(div)
+    }
+    const createTodo = (arr)=>{
+        arr.forEach((elem) => createElement(elem.text,elem.complete))
+    }
+    createTodo(todoList)
+    const createNewElement = (arr)=>{
+        const newEl = {text:input.value, complete: false}
+
+        arr.push(newEl)
+        createElement(newEl.text,newEl.complete)
+
+    }
+     button.addEventListener('click',() => {
+
+            createNewElement(todoList)
+            console.log(todoList)
+            input.value = ' '
+        }
+    )
+
+    //const div = document.getElementsByTagName('div')
+    // const btn1 = document.getElementById('btn1')
+    // const createElement = (tag,color,text) =>{
+    //     btn1.innerText=(text)
+    //     const element = document.createElement(tag)
+    //
+    //     element.style.backgroundColor = color
+    //     element.innerText = text
+    //     return element
+    // }
+    // const rot = document.getElementsByClassName('rot')
+    // // const rot2 = document.getElementsByTagNameNS()
+    // const rot3 = document.querySelector('#root')
+    // const rot4 = document.querySelector('.rot')
+    // const rot5 = document.querySelectorAll('.rot')
+    // rot5.forEach(item=> item.innerText = 'Hello World')
+    // root.innerText = ('HELLO WORLD')
+    // console.log(root)
+    // console.log(rot)
+    // console.log(rot3)
+    // console.log(rot4)
+    // console.log(rot5)
+    // const arr = [1,2,3]
+    // const newArr = arr.map(item=> item*2)
+    // const newArr2 = arr.forEach(item=> item*2)
+    // console.log(newArr)
+    // console.log(newArr2)
+    // const btn2 = document.getElementById('btn2')
+    // const btn3 = document.getElementById('btn3')
+    // const handleClick = () =>{
+    //      if (root.innerText === 'Hello world'){
+    //          root.innerText='bye world'
+    //      }
+    //      else  {
+    //          root.innerText='bye world'
+    //      }
+    // }
+     // const handleClick = () => {
+     //    const div = document.createElement('div')
+     //     div.style.backgroundColor = 'yellow'
+     //     div.innerText = 'НАШ div'
+     //     root.append(div)
+     // }
+    // btn.addEventListener('click',handleClick)
+    // btn2.addEventListener('click', () => root.append(createElement('div','green','green')))
+    // btn3.addEventListener('click', () => root.append(createElement('div','blue','blue')))
     // //primitive
     // '' - string
     // 1 - number
@@ -118,7 +253,6 @@
     //     return a+b;
     // }
     // console.log(getSum(5,4))
-
     // const world = 'world'
     // const name = 'Dima'
     // const text = `${world} ${name}`
@@ -206,7 +340,6 @@
     //     return newData
     // }
     // console.log(without(data,'b','c'))
-
     // const productList  = [
     //     {title: 'Телефон1',subText: 'Описание телефона1',price: 123,isSale: true},
     //     {title: 'Телефон2',subText: 'Описание телефона2',price: 1000,},
@@ -255,42 +388,43 @@
     // )
     // console.log(arrSum)
     //1 declaration
-    function foo(a,b,c) {
-        console.log(arguments)//псевдомассив
-    }
-    foo(1,2,3);
-    //2 expression(стрелочная)
-    const foo1 = (a,b,c) => console.log(a,b,c)//нет псевомассива aruments, this
-    foo1(1,2,3);
-    //3 IIFE
-    (function () {//пользоваться не желательно
-        console.log('function IIFE')
-    })()
-    //4 function constructor
-    function Bar() {//с большой буквы
-
-    }
-    //5 function generator
-    function* generator(i) {
-        yield i;
-        yield i+10;
-        yield i+20;
-    }
-    const gen = generator(10);
-    console.log(gen.next().value);
-    console.log(gen.next().value);
-    console.log(gen.next().value);
-    //6 Method
-    const obj = {
-         name: 'Dima',
-        getName: function () {
-            console.log(this.name)//this==obj
-        },
-        setName(newName){
-             this.name = newName
-        }
-    }
-    obj.getName()
+    // function foo(a,b,c) {
+    //     console.log(arguments)//псевдомассив
+    // }
+    // foo(1,2,3);
+    // //2 expression(стрелочная)
+    // const foo1 = (a,b,c) => console.log(a,b,c)//нет псевомассива aruments, this
+    // foo1(1,2,3);
+    // //3 IIFE
+    // (function () {//пользоваться не желательно
+    //     console.log('function IIFE')
+    // })()
+    // //4 function constructor
+    // function Bar() {//с большой буквы
+    //
+    // }
+    // //5 function generator
+    // function* generator(i) {
+    //     yield i;
+    //     yield i+10;
+    //     yield i+20;
+    // }
+    // const gen = generator(10);
+    // console.log(gen.next().value);
+    // console.log(gen.next().value);
+    // console.log(gen.next().value);
+    // //6 Method
+    // const obj = {
+    //      name: 'Dima',
+    //     getName: function () {
+    //         console.log(this.name)//this==obj
+    //     },
+    //     setName(newName){
+    //          this.name = newName
+    //     }
+    // }
+    // obj.getName()
+    //btn1.addEventListener('click', () => root.append(createElement('div','red','red')))
 </script>
 </body>
 </html>
